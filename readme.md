@@ -46,7 +46,16 @@ Cela va automatiquement :
 2. Suivez l'assistant d'installation WordPress
 3. Créez vos articles de blog
 
-### Étape 4 : Indexer les articles pour le RAG
+### Étape 4 : Installer le plugin Chatbot
+
+Copiez le plugin chatbot dans le dossier WordPress :
+```bash
+cp -r wordpress/wp-content/plugins/mon-chatbot-ai wordpress_data/wp-content/plugins/
+```
+
+Puis activez-le dans **WordPress Admin → Extensions → Mon Chatbot RAG Local**.
+
+### Étape 5 : Indexer les articles pour le RAG
 
 Une fois vos articles créés, lancez l'indexation :
 ```bash
@@ -64,7 +73,9 @@ searchIA/
 │   ├── Dockerfile
 │   ├── main.py
 │   └── requirements.txt
-├── wordpress/              # Plugins/thèmes WordPress custom
+├── wordpress/              # Plugins/thèmes WordPress custom (versionné)
+│   └── wp-content/plugins/
+│       └── mon-chatbot-ai/ # Widget de chat IA
 ├── data/                   # (ignoré) Données MySQL locales
 └── wordpress_data/         # (ignoré) Installation WordPress locale
 ```
