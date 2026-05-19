@@ -1,0 +1,50 @@
+services:
+  db:
+    image: mariadb:10.6
+    environment:
+      MYSQL_DATABASE: db_rag
+      MYSQL_USER: rag_wordpress
+      MYSQL_PASSWORD: bikde7-pydmav-mUqwah
+      MYSQL_ROOT_PASSWORD: vevkUx-rofqyd-puqdi8
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+
+  wordpress:
+    image: wordpress:latest
+    depends_on:
+      - db
+    ports:
+      - "8080:80"
+    volumes:
+      - ./wordpress_data:/var/www/html
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_NAME: db_rag
+      WORDPRESS_DB_USER: rag_wordpress
+      WORDPRESS_DB_PASSWORD: bikde7-pydmav-mUqwah
+
+  qdrant:
+    image: qdrant/qdrant:latest
+    ports:
+      - "6333:6333"
+    volumes:
+      - qdrant_storage:/qdrant/storage
+
+  rag-engine:
+    build: ./rag-engine
+    volumes:
+      - ./rag-engine:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - DB_HOST=db
+      - DB_USER=rag_wordpress
+      - DB_PASS=bikde7-pydmav-mUqwah
+      - DB_NAME=db_rag
+      # Plus besoin de clé OpenAI !
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+volumes:
+  db_data:
+  qdrant_storage:

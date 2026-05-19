@@ -1,0 +1,96 @@
+# ===========================================
+# Données locales (régénérées automatiquement)
+# ===========================================
+
+# Base de données MySQL (créée automatiquement par Docker)
+data/
+
+# Installation WordPress (créée automatiquement par l'image Docker)
+wordpress_data/
+
+# Fichiers d'environnement
+.env
+.env.local
+.env.*.local
+
+# Dépendances Python (pas les fichiers requirements.txt)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Logs
+*.log
+logs/
+
+# Cache
+.pytest_cache/
+.coverage
+.cache/
+*.cover
+htmlcov/
+
+# IDE/Éditeur
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+
+# Docker
+.docker/
+docker-compose.override.yml
+
+# Données WordPress uniquement (uploads, cache)
+wordpress/wp-content/uploads/
+wordpress_data/wp-content/uploads/
+
+# Fichiers sensibles WordPress
+wordpress/wp-config-local.php
+wordpress/wp-config.php
+wordpress_data/wp-config-local.php
+
+# Dépendances Node.js (si présentes)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Fichiers temporaires OS
+.DS_Store
+Thumbs.db
+
+# Sauvegardes
+*.bak
+*.tmp
+*.swp
+
+# Dossiers VS Code
+.vscode/
+
+# Session files
+.session/

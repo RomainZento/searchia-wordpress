@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "searchIA",
+			"path": ".."
+		},
+		{
+			"name": "wordpress",
+			"path": "../../../../../Downloads/wordpress"
+		}
+	],
+	"settings": {}
+}
