@@ -102,3 +102,33 @@ searchIA/
 ### Erreur de connexion à Ollama
 → Assurez-vous qu'Ollama tourne sur le port 11434
 → Redémarrez le conteneur rag-engine : `docker compose restart rag-engine`
+
+## 🚀 Intégration Headless (Next.js, React, etc.)
+
+Le RAG Engine expose une API REST utilisable depuis n'importe quelle application frontend.
+
+### Endpoint API
+
+```
+GET http://localhost:8000/ask?query=votre+question
+```
+
+Réponse :
+```json
+{ "answer": "La réponse de l'IA..." }
+```
+
+### Intégration Next.js
+
+Des exemples prêts à l'emploi sont disponibles dans `examples/nextjs/` :
+
+- **ChatBot.tsx** - Composant complet avec UI (Tailwind CSS)
+- **useChatBot.ts** - Hook headless pour créer votre propre interface
+
+```bash
+# Copier dans votre projet Next.js
+cp examples/nextjs/ChatBot.tsx votre-projet/components/
+cp examples/nextjs/useChatBot.ts votre-projet/hooks/
+```
+
+Voir [examples/nextjs/README.md](examples/nextjs/README.md) pour la documentation complète.

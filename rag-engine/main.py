@@ -12,13 +12,17 @@ import re
 
 app = FastAPI()
 
-# --- BLOC À AJOUTER ICI ---
+# Configuration CORS - Autorise WordPress et Next.js
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:8080"], # Autorise spécifiquement ton WordPress
+    allow_origins=[
+        "http://localhost:8080",  # WordPress
+        "http://localhost:3000",  # Next.js dev
+        "http://127.0.0.1:3000",  # Next.js dev (alt)
+    ],
     allow_credentials=True,
-    allow_methods=["*"], # Autorise GET, POST, etc.
-    allow_headers=["*"], # Autorise tous les headers
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 DB_CONFIG = {
